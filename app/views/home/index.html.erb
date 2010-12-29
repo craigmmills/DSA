@@ -12,16 +12,21 @@
 		<br>
 	</div>
 	<div class="span-16">
-		<p>
+		<div class="span-16 box" style="margin-bottom:0em;width: 630px;">
 			<%= form_tag(:method => "get") do %> 
 				I am travelling to 
 				<%= select(:id,nil, grouped_options_for_select(DsaDetail.dropdown), :prompt => '-select-') %> 
 				for 
 				<%= text_field_tag :nights, @nights %> nights <%= submit_tag("Calculate") %> 
 			<% end %>
-		</p>
+		</div>
+		<div class="span-16">
+			<img alt="Blue_arrow" src="/images/arrow.png" style="position:absolute;left:300px;">
+			<br/>
+		</div>
+		
 				
-		<div id="results" class="span-16">
+		<div id="results" class="span-16 box">
 			<table>
 				<tr style="padding-bottom:2px;">
 					<td width="10%"><h1><%= @dsa_rec.country.name %></h1></td>
@@ -32,7 +37,7 @@
 					<strong>Hotel</strong> allowance per night:<br>
 					<strong>Cash</strong> allowance per night:<br>
 					Number of <strong>nights</strong>:<br>
-					<hr>
+					
 					<h2>
 						Total:
 					</h2>
@@ -41,7 +46,7 @@
 					<strong>$ <%= @hotel %><br>
 					$ <%= @cash %><br>
 					<%= @nights %><br></strong>
-					<hr>
+					
 					<h2>
 						$<%= @total %>
 					</h2>($<%= @advanced_dsa %> available for advanced DSA)
@@ -49,14 +54,13 @@
 					<br>
 		</div>
 	
-		<hr>
-		<ul id="copy" class="span-16">
-			<li>
+		<div id="copy" class="span-16 box">
+			
 				<label for="copypaste">Copy and paste this into Deltek</label><br>
 				<textarea name="copypaste" id="copypaste" rows="3" cols="5" style="width:600px;height:100px;margin:10px"><%= @deltek_text %>
 				</textarea>
-			</li>
-		</ul>
+			
+		</div>
 	</div>
 	<div class="span-4 last">
 		<br>
