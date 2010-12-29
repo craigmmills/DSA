@@ -1,12 +1,13 @@
-<p>
-	<br>
-</p>
-<div class="container">
-	<div class="span-24 last">
-		<h1 style="text-align:center">
-			Calculate your daily subsistence allowance
-		</h1>
+
+<div id="layout" style="height:120px">
+	<div class="container">
+		<div class="span-24 last">
+			<h1 style="text-align:center;color:white;padding-top:43px;" >Calculate your daily subsistence allowance</h1>
+		</div>
 	</div>
+</div>
+<div class="container">
+	
 	<div class="span-4">
 		<br>
 	</div>
@@ -19,17 +20,14 @@
 				<%= text_field_tag :nights, @nights %> nights <%= submit_tag("Calculate") %> 
 			<% end %>
 		</p>
-		
-		<table>
-			<tr style="padding-bottom:2px;">
-				<td width="10%"><h1><%= @dsa_rec.country.name %></h1></td>
-				<td width="90%"><h4>(<%= @dsa_rec.city %>)</h4></td>
-			</tr>
-		</table>
-		<hr>
-		
-		<ul id="results" class="span-16 boxsh">
-			<li>
+				
+		<div id="results" class="span-16">
+			<table>
+				<tr style="padding-bottom:2px;">
+					<td width="10%"><h1><%= @dsa_rec.country.name %></h1></td>
+					<td width="90%"><h4>(<%= @dsa_rec.city %>)</h4></td>
+				</tr>
+			</table>
 				<div class="span-8">
 					<strong>Hotel</strong> allowance per night:<br>
 					<strong>Cash</strong> allowance per night:<br>
@@ -48,14 +46,15 @@
 						$<%= @total %>
 					</h2>($<%= @advanced_dsa %> available for advanced DSA)
 				</div>
-			</li>
-		</ul>
-		<ul id="copy" class="span-16 boxsh">
+					<br>
+		</div>
+	
+		<hr>
+		<ul id="copy" class="span-16">
 			<li>
 				<label for="copypaste">Copy and paste this into Deltek</label><br>
-				<textarea name="copypaste" id="copypaste" rows="3" cols="5" style="width:600px;height:100px;margin:10px">
-<%= @deltek_text %>
-</textarea>
+				<textarea name="copypaste" id="copypaste" rows="3" cols="5" style="width:600px;height:100px;margin:10px"><%= @deltek_text %>
+				</textarea>
 			</li>
 		</ul>
 	</div>

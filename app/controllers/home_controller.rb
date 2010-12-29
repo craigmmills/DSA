@@ -19,10 +19,10 @@ class HomeController < ApplicationController
     @dsa_rec = DsaDetail.find(@dsa_id)
     
     
-    @hotel = (@dsa_rec.total * (@dsa_rec.perc_hotel/100))
-    @cash = @dsa_rec.total - @hotel
-    @total = (@dsa_rec.total * @nights.to_f)
-    @advanced_dsa = @total * 0.9
+    @hotel = (@dsa_rec.total * (@dsa_rec.perc_hotel/100)).round(2)
+    @cash = (@dsa_rec.total - @hotel).round(2)
+    @total = (@dsa_rec.total * @nights.to_f).round(2)
+    @advanced_dsa = (@total * 0.9).round(2)
     
    
     @deltek_text = "travelling for #{@nights} days @ $#{@dsa_rec.total} per day - advanced dsa (90%) = $#{@advanced_dsa}"
