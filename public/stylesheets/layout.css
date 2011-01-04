@@ -1,1 +1,26 @@
 div#layout {float:left; width:100%; background:url(../images/header_grey.png) repeat-x center 0;}
+div#travelling {float:left; width:100%; background:url(../images/travelling.png) repeat-x center 0; height:31px;}
+
+
+.nights_text    {
+    /*we will first set the border styles.*/
+    border-width: 1px;
+    border-style: solid;
+    border-color: #999999;
+    font-size: 14px;
+    color: #333333;
+    width: 20px;
+    height: 18px;
+	margin-bottom:0em;
+    }
+
+.other_text    {
+    /*we will first set the border styles.*/
+    /*we are now going to add in the shadow image that we created earlier*/
+    /*background-image: url(back_field.gif);
+        background-repeat: repeat-x;*/
+    /*I am going to add some text formatting of my own*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    margin-bottom:0em;
+    }

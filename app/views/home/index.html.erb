@@ -1,8 +1,8 @@
 
-<div id="layout" style="height:120px">
+<div id="layout" style="height:113px">
 	<div class="container">
 		<div class="span-24 last">
-			<h1 style="text-align:center;color:white;padding-top:43px;" >Calculate your daily subsistence allowance</h1>
+			<h1 style="text-align:center;color:white;padding-top:43px;">&nbsp&nbsp&nbsp Calculate your daily subsistence allowance</h1>
 		</div>
 	</div>
 </div>
@@ -12,48 +12,56 @@
 		<br>
 	</div>
 	<div class="span-16">
-		<div class="span-16 box" style="margin-bottom:0em;width: 630px;">
+		<div id="travelling" class="span-16 box" style="margin-bottom:0em;">
 			<%= form_tag(:method => "get") do %> 
-				I am travelling to 
-				<%= select(:id,nil, grouped_options_for_select(DsaDetail.dropdown), :prompt => '-select-') %> 
-				for 
-				<%= text_field_tag :nights, @nights %> nights <%= submit_tag("Calculate") %> 
+				<p class="other_text" style="">I am travelling to
+				<%= select(:id,nil, grouped_options_for_select(DsaDetail.dropdown), :prompt => '-select-' ) %> 
+				for
+				<%= text_field_tag :nights, @nights, :class => "nights_text" %> nights <%= submit_tag("Calculate") %> </p>
 			<% end %>
 		</div>
 		<div class="span-16">
-			<img alt="Blue_arrow" src="/images/arrow.png" style="position:absolute;left:300px;">
+			<img src="/images/dark_grey_arrow.png" style="position:absolute;left:300px;">
 			<br/>
 		</div>
 		
 				
-		<div id="results" class="span-16 box">
-			<table>
-				<tr style="padding-bottom:2px;">
-					<td width="10%"><h1><%= @dsa_rec.country.name %></h1></td>
-					<td width="90%"><h4>(<%= @dsa_rec.city %>)</h4></td>
+		<div id="results" class="span-16 box" style="margin-bottom:0em;">
+			<table style="margin-bottom:0.5em;">
+				<tr style="margin-bottom:0em;">
+					<td width="10%"><h1 style="margin-bottom:0em"><%= @dsa_rec.country.name %></h1></td>
+					<td width="90%"><h4 style="margin-bottom:0em">(<%= @dsa_rec.city %>)</h4></td>
 				</tr>
 			</table>
+			<hr>
 				<div class="span-8">
+					<h2>
+						Total:
+					</h2>
+					<br>
 					<strong>Hotel</strong> allowance per night:<br>
 					<strong>Cash</strong> allowance per night:<br>
 					Number of <strong>nights</strong>:<br>
 					
-					<h2>
-						Total:
-					</h2>
+					
 				</div>
 				<div class="span-8 last">
-					<strong>$ <%= @hotel %><br>
-					$ <%= @cash %><br>
-					<%= @nights %><br></strong>
-					
-					<h2>
+					<h2 style="margin-bottom:0em">
 						$<%= @total %>
-					</h2>($<%= @advanced_dsa %> available for advanced DSA)
+					</h2>($<%= @advanced_dsa %> available for advanced DSA)<br>
+					<div style="margin-top:1.3em"><strong>$ <%= @hotel %><br>
+					$ <%= @cash %><br>
+					<%= @nights %><br></strong></div>
+					
+					
 				</div>
 					<br>
 		</div>
-	
+
+		<div class="span-16">
+			<img alt="Blue_arrow" src="/images/arrow.png" style="position:absolute;left:300px;">
+			<br/>
+		</div>
 		<div id="copy" class="span-16 box">
 			
 				<label for="copypaste">Copy and paste this into Deltek</label><br>
